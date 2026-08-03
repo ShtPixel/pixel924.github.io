@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "titulo": "Festival Cultural",
+    "categoria": "eventos",
+    "año": "2025",
+    "evento": "festival",
+    "img": "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80",
+    "descripcion": "Celebración anual con música y danzas típicas."
+  },
+  {
+    "id": 2,
+    "titulo": "Paisaje Andino",
+    "categoria": "paisajes",
+    "año": "2024",
+    "evento": "",
+    "img": "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80",
+    "descripcion": "Vista panorámica de las montañas de Mallama."
+  }
+]

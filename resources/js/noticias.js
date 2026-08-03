@@ -1,13 +1,14 @@
-import { renderNoticias, noticiasEjemplo } from './componentes.js';
+import { renderNoticias, cargarDatos } from './componentes.js';
 
-let noticiasActuales = [...noticiasEjemplo];
+let noticias = [];
+let noticiasActuales = [];
 
 function filterNews() {
     const categoria = document.getElementById('categoriaFilter').value;
     const fecha = document.getElementById('fechaFilter').value;
     const busqueda = document.getElementById('searchInput').value.toLowerCase();
 
-    noticiasActuales = noticiasEjemplo.filter(noticia => {
+    noticiasActuales = noticias.filter(noticia => {
         let match = true;
         if (categoria && noticia.categoria.toLowerCase() !== categoria.toLowerCase()) match = false;
         if (fecha && noticia.fecha !== fecha) match = false;
@@ -16,10 +17,15 @@ function filterNews() {
     });
 
     renderNoticias('newsContainer', noticiasActuales);
+
+    if (noticiasActuales.length === 0) {
+            document.getElementById('newsContainer').innerHTML =
+                '<p class="text-center text-muted">No se encontraron noticias.</p>';
+        }
 }
 
-export function showNewsDetail(id) {
-    const noticia = noticiasEjemplo.find(n => n.id == id);
+export function showNewsDetail(id, listaNoticias = noticias ) {
+    const noticia = listaNoticias.find(n => n.id == id);
     if (!noticia) return;
     document.getElementById('newsDetailLabel').textContent = noticia.titulo;
     document.getElementById('newsDetailImage').src = noticia.img;
@@ -32,9 +38,13 @@ export function showNewsDetail(id) {
     modal.show();
 }
 
-export default function init() {
-    renderNoticias('newsDestacadas', noticiasEjemplo.slice(0, 2));
-    renderNoticias('newsContainer', noticiasEjemplo);
+export default async function init() {
+try{
+    noticias = await cargarDatos('resources/data/noticias.json');
+    noticiasActuales = [...noticias];
+
+    renderNoticias('newsDestacadas', noticias.slice(0, 2));
+    renderNoticias('newsContainer', noticias);
 
     document.getElementById('categoriaFilter')?.addEventListener('change', filterNews);
     document.getElementById('fechaFilter')?.addEventListener('change', filterNews);
@@ -52,4 +62,10 @@ export default function init() {
             showNewsDetail(id);
         }
     });
+    } catch (error) {
+    console.error(error);
+    document.getElementById('newsContainer').innerHTML =
+                '<p class="text-center text-muted">No se pudieron cargar las noticias.</p>';
+
+    }
 }

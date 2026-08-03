@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "titulo": "Noticia 1 (EJEMPLO)",
+    "categoria": "Salud",
+    "fecha": "2025-06-15",
+    "img": "https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?auto=format&fit=crop&w=600&q=80",
+    "resumen": "La comunidad de Gran Mallama celebra la apertura de nuevas instalaciones médicas que beneficiarán a más de 2,000 familias..."
+  },
+  {
+    "id": 2,
+    "titulo": "Noticia 2 (EJEMPLO)",
+    "categoria": "Educación",
+    "fecha": "2025-06-10",
+    "img": "https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=600&q=80",
+    "resumen": "Iniciativa para capacitar a jóvenes y adultos en el uso de tecnologías digitales, fortaleciendo las competencias de nuestra comunidad..."
+  },
+  {
+    "id": 3,
+    "titulo": "Noticia 3 (EJEMPLO)",
+    "categoria": "Desarrollo",
+    "fecha": "2025-06-08",
+    "img": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=400&q=80",
+    "resumen": "Implementación de técnicas agrícolas ecológicas..."
+  }
+]

@@ -1,29 +1,15 @@
+export async function cargarDatos(ruta){
+    const respuesta = await fetch(ruta);
+    if (!respuesta.ok) {
+        throw new Error (`No se pudo cargar $[ruta]`);
+    }
+    return respuesta.json();
+}
+
+
 // Array de ejemplo de noticias (puedes cargarlo dinámicamente en el futuro)
 export const noticiasEjemplo = [
-    {
-        id: 1,
-        titulo: "Noticia 1 (EJEMPLO)",
-        categoria: "Salud",
-        fecha: "2025-06-15",
-        img: "https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?auto=format&fit=crop&w=600&q=80",
-        resumen: "La comunidad de Gran Mallama celebra la apertura de nuevas instalaciones médicas que beneficiarán a más de 2,000 familias..."
-    },
-    {
-        id: 2,
-        titulo: "Noticia 2 (EJEMPLO)",
-        categoria: "Educación",
-        fecha: "2025-06-10",
-        img: "https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=600&q=80",
-        resumen: "Iniciativa para capacitar a jóvenes y adultos en el uso de tecnologías digitales, fortaleciendo las competencias de nuestra comunidad..."
-    },
-    {
-        id: 3,
-        titulo: "Noticia 3 (EJEMPLO)",
-        categoria: "Desarrollo",
-        fecha: "2025-06-08",
-        img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=400&q=80",
-        resumen: "Implementación de técnicas agrícolas ecológicas..."
-    }
+
 ];
 
 // Renderiza un bloque de noticias en el contenedor indicado
@@ -64,59 +50,7 @@ export function renderNoticias(containerId, noticias) {
 }
 
 export const eventosEjemplo = [
-    {
-        id: 1,
-        titulo: "Lunada de Verano",
-        tipo: "Cultural",
-        vereda: "Centro",
-        fecha: "2025-08-01",
-        hora: "2:00 PM",
-        lugar: "Salón Cultural",
-        organizador: "Kevin Pizanda - Jrking Music",
-        resumen: "Preparate para recibir el verano con toda la energia en una jornada cultural, deportiva y musical. Entrada a cinco mil pesos.",
-        actividades: [
-            "Artistas y grupos locales.",
-            "Torneos de ping pong.",
-            "Torneos de ajedrez",
-            "Torneos de boxeo.",
-            "Presentacion de DJ's",
-        ],
-        img: "resources/images/lunada-portada.jpg"
-    },
-    {
-        id: 2,
-        titulo: "Evento 2 (EJEMPLO)",
-        tipo: "Cultural",
-        vereda: "Centro",
-        fecha: "2025-09-21",
-        hora: "9:00 AM - 4:00 PM",
-        lugar: "Plaza Principal",
-        organizador: "Junta Comunal",
-        resumen: "Feria con exposición y venta de artesanías, comida típica y presentaciones culturales.",
-        actividades: [
-            "Exposición de artesanías",
-            "Venta de productos locales",
-            "Presentaciones culturales",
-            "Degustación de comida típica"
-        ],
-        img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80"
-    },
-    {
-        id: 3,
-        titulo: "Evento 3 (EJEMPLO)",
-        tipo: "Educativo",
-        vereda: "Norte",
-        fecha: "2025-10-05",
-        hora: "8:00 AM - 12:00 PM",
-        lugar: "Casa Comunal Norte",
-        organizador: "Asociación de Agricultores",
-        resumen: "Aprende técnicas de agricultura sostenible con expertos locales.",
-        actividades: [
-            "Charlas técnicas",
-            "Demostraciones prácticas"
-        ],
-        img: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80"
-    }
+
     // ...agrega más eventos...
 ];
 
@@ -140,24 +74,7 @@ export function renderEventos(containerId, eventos) {
 }
 
 export const galeriaEjemplo = [
-    {
-        id: 1,
-        titulo: "Festival Cultural",
-        categoria: "eventos",
-        año: "2025",
-        evento: "festival",
-        img: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80",
-        descripcion: "Celebración anual con música y danzas típicas."
-    },
-    {
-        id: 2,
-        titulo: "Paisaje Andino",
-        categoria: "paisajes",
-        año: "2024",
-        evento: "",
-        img: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80",
-        descripcion: "Vista panorámica de las montañas de Mallama."
-    }
+
     // ...más imágenes...
 ];
 

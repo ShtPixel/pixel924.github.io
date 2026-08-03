@@ -1,14 +1,22 @@
-import { renderUltimasNoticias, noticiasEjemplo, renderProximosEventos, eventosEjemplo } from './componentes.js';
+import { renderUltimasNoticias, renderProximosEventos} from './componentes.js';
 import { showNewsDetail } from './noticias.js';
+import {cargarDatos} from './componentes.js'
 
-export default function init() {
-    renderUltimasNoticias('ultimasNoticiasInicio', noticiasEjemplo, 2);
-    renderProximosEventos('proximosEventosInicio', eventosEjemplo, 3);
+export default async function init() {
+    try {
+        const noticias = await cargarDatos('resources/data/noticias.json');
+        const eventos = await cargarDatos('resources/data/eventos.json');
 
-    document.getElementById('ultimasNoticiasInicio')?.addEventListener('click', function(e) {
-        if (e.target.classList.contains('news-btn')) {
-            const id = e.target.getAttribute('data-id');
-            showNewsDetail(id);
-        }
-    });
+        renderUltimasNoticias('ultimasNoticiasInicio', noticias, 2);
+        renderProximosEventos('proximosEventosInicio', eventos, 3);
+
+        document.getElementById('ultimasNoticiasInicio')?.addEventListener('click', function(e) {
+            if (e.target.classList.contains('news-btn')) {
+                const id = e.target.getAttribute('data-id');
+                showNewsDetail(id);
+            }
+        });
+    } catch (error) {
+        console.error(error);
+    }
 }
